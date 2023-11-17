@@ -1,0 +1,27 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+      - v3.12.x
+      - v3.11.x
+  pull_request:
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        bazel_otp_name:
+        - "25"
+        - "26"
+    uses: rabbitmq/rabbitmq-lvc-exchange/.github/workflows/bazel-test.yml@main
+    with:
+      bazel_otp_name: ${{ matrix.bazel_otp_name }}
+  summary:
+    needs:
+    - test
+    runs-on: ubuntu-latest
+    steps:
+    - name: SUMMARY
+      run: |
+        echo "SUCCESS"
