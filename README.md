@@ -1,4 +1,4 @@
-# JSON filtering Exchange
+# WIP - JSON filtering Exchange
 
 Plugin built for routing based upon JSON fields. Route your messages using JSON filters and operators such as `$or` and `$ne`.
 Roadmap: Support overriding JSON filters so you can have you own implementation.
