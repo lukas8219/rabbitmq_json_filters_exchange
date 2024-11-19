@@ -1,7 +1,14 @@
-# WIP - JSON filtering Exchange
+# WIP - JSON Filtering Exchange
 
 Plugin built for routing based upon JSON fields. Route your messages using JSON filters and operators such as `$or` and `$ne`.
 Roadmap: Support overriding JSON filters so you can have you own implementation.
+
+### Roadmap
+Within AMQP Model, Brokers are not expected to read the body of the message which should always be treated as a binary sequence. To overcome the need to parse the JSON and then apply filtering there's one option. Binary Data Formats - which will require a client-side library.
+- On the client, we specifiy a given Set of fields
+- Queues are bind via binary protocol.
+- When publishing, the Exchange will list all bindings and their binary format and try to match by sorted.
+WIP: describe better
 
 ## Supported RabbitMQ Versions
 
